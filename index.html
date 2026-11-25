@@ -4,17 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexus Transformations — Websites for Every Business | Portfolio</title>
-<!-- smooth-v2 -->
+<!-- palette-v3 -->
 <meta name="description" content="Nexus Transformations is a digital agency building websites for businesses all over India — homestays, restaurants, salons, gyms, clinics, coaching and more. See a free demo of your own website before you pay anything.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#faf6ee; --ink:#16130e; --grey:#6f6a5e; --card:#ffffff;
-  --orange:#ff5a1f; --orange-d:#e8480f; --line:rgba(22,19,14,.12);
-  --dark:#171310; --radius:22px;
+  --bg:#e6d5bd; --ink:#101010; --grey:#5c5546; --card:#f7efdf;
+  --orange:#d5360c; --orange-d:#a82a09; --line:rgba(16,16,16,.15);
+  --dark:#101010; --radius:22px;
 }
+html{background:#d5360c}
+::selection{background:#d5360c;color:#fff}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;overflow-x:hidden}
@@ -24,7 +26,7 @@ a{text-decoration:none;color:inherit}
 #progress{position:fixed;top:0;left:0;height:3px;background:var(--orange);width:0;z-index:300}
 /* floating pill nav */
 .nav-shell{position:sticky;top:14px;z-index:200;padding:0 16px}
-.nav{max-width:1060px;margin:0 auto;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:9px 10px 9px 20px;box-shadow:0 12px 32px rgba(22,19,14,.10)}
+.nav{max-width:1060px;margin:0 auto;background:rgba(247,239,223,.96);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:9px 10px 9px 20px;box-shadow:0 12px 32px rgba(22,19,14,.10)}
 .logo{font-weight:900;font-size:19px;letter-spacing:-.02em;display:flex;align-items:center;gap:9px}
 .logo .mark{width:26px;height:26px;border-radius:8px;background:var(--orange);display:inline-flex;align-items:center;justify-content:center;color:#fff;font-size:15px;transform:rotate(45deg)}
 .logo .mark span{transform:rotate(-45deg);font-weight:900}
@@ -41,7 +43,7 @@ a{text-decoration:none;color:inherit}
 .btn-sm{padding:9px 18px;font-size:14px}
 /* hero */
 .hero{text-align:center;padding:72px 20px 30px;max-width:900px;margin:0 auto}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:#f7efdf;border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:12px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
 .eyebrow b{color:var(--orange)}
 h1{font-size:clamp(42px,7.6vw,78px);font-weight:900;letter-spacing:-.035em;line-height:1.02;margin-top:26px}
 h1 .o{color:var(--orange)}
@@ -52,9 +54,9 @@ h1 .wi{display:inline-block;will-change:transform}
 .hero-note{margin-top:16px;font-size:13.5px;color:var(--grey)}
 .hero-note b{color:var(--ink)}
 /* category strip */
-.strip{margin-top:44px;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line);padding:16px 0;overflow:hidden;white-space:nowrap}
+.strip{margin-top:44px;background:#101010;padding:16px 0;overflow:hidden;white-space:nowrap}
 .strip-track{display:inline-flex;animation:mq 30s linear infinite;will-change:transform}
-.strip span{font-size:13px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);padding-right:12px}
+.strip span{font-size:13px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;color:#e6d5bd;padding-right:12px}
 .strip span i{color:var(--orange);font-style:normal}
 @keyframes mq{to{transform:translateX(-50%)}}
 /* gallery row */
@@ -73,7 +75,7 @@ h2 .o{color:var(--orange)}
 .compare{display:grid;gap:18px}
 @media(min-width:820px){.compare{grid-template-columns:1fr 1fr}}
 .cmp{border-radius:var(--radius);padding:30px;border:1px solid var(--line)}
-.cmp.them{background:#f1ebdd}
+.cmp.them{background:#d9c6a3}
 .cmp.us{background:var(--dark);color:#fff;border-color:var(--dark)}
 .cmp h3{font-size:20px;font-weight:800;margin-bottom:18px}
 .cmp ul{list-style:none}
@@ -92,19 +94,19 @@ h2 .o{color:var(--orange)}
 .work-card h3{font-size:23px;font-weight:800;letter-spacing:-.01em}
 .facts{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
 .fact{font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--bg);border:1px solid var(--line);padding:5px 11px;border-radius:999px;color:var(--grey)}
-.fact.demo{background:#fff1e8;border-color:#ffd3ba;color:var(--orange-d)}
+.fact.demo{background:#f6dcd2;border-color:#eda183;color:var(--orange-d)}
 .work-card p{color:var(--grey);font-size:15px}
 .work-card .view{display:inline-flex;margin-top:16px;font-weight:800;font-size:14.5px;color:var(--orange-d)}
 .work-card.cta-card{background:var(--orange);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:34px;border:none}
 .work-card.cta-card h3{font-size:28px}
-.work-card.cta-card p{color:#ffe4d6}
+.work-card.cta-card p{color:#f7e3d3}
 .work-card.cta-card .btn{align-self:flex-start;margin-top:20px;background:#fff;color:var(--orange-d)}
 /* services */
 .svc-grid{display:grid;gap:18px}
 @media(min-width:860px){.svc-grid{grid-template-columns:repeat(3,1fr)}}
 .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px;transition:transform .3s,box-shadow .3s}
 .svc:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(22,19,14,.12)}
-.svc .icon{width:48px;height:48px;border-radius:14px;background:#fff1e8;color:var(--orange-d);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
+.svc .icon{width:48px;height:48px;border-radius:14px;background:#f6dcd2;color:var(--orange-d);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:16px}
 .svc h3{font-size:20px;font-weight:800}
 .svc p{color:var(--grey);font-size:15px;margin-top:9px}
 .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
@@ -140,7 +142,7 @@ h2 .o{color:var(--orange)}
 .price .btn{margin-top:auto;justify-content:center}
 /* industries */
 .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
-.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-weight:700;font-size:15px;transition:.25s}
+.chip{background:#f7efdf;border:1px solid var(--line);border-radius:999px;padding:11px 20px;font-weight:700;font-size:15px;transition:.25s}
 .chip:hover{border-color:var(--orange);color:var(--orange-d);transform:translateY(-2px)}
 /* team */
 .team-band{background:var(--orange);border-radius:28px;padding:40px 30px;color:#fff}
@@ -149,11 +151,11 @@ h2 .o{color:var(--orange)}
 .member{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:24px;display:flex;gap:18px;align-items:flex-start}
 .avatar{width:58px;height:58px;border-radius:50%;background:#fff;color:var(--orange-d);font-weight:900;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none}
 .member h3{font-size:19px;font-weight:800}
-.member .role{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#ffd9c7}
-.member p{font-size:14.5px;color:#ffe9de;margin-top:7px}
+.member .role{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#f3d9c8}
+.member p{font-size:14.5px;color:#f7e3d3;margin-top:7px}
 /* faq */
 .faq{max-width:820px;margin:0 auto}
-.faq-item{background:#fff;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
+.faq-item{background:#f7efdf;border:1px solid var(--line);border-radius:16px;margin-bottom:12px;overflow:hidden}
 .faq-q{width:100%;text-align:left;background:none;border:none;font:inherit;font-weight:700;font-size:16.5px;padding:19px 22px;cursor:pointer;display:flex;justify-content:space-between;gap:14px;align-items:center}
 .faq-q .pm{color:var(--orange);font-size:22px;font-weight:900;transition:transform .3s}
 .faq-item.open .pm{transform:rotate(45deg)}
@@ -417,8 +419,8 @@ footer li a:hover{color:var(--orange-d)}
   <section style="padding-top:6px"><div class="wrap">
     <div class="team-band" data-reveal>
       <span class="eyebrow" style="background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:#fff"><b style="color:#fff">&gt;</b> The Founders <b style="color:#fff">&lt;</b></span>
-      <h2 style="color:#fff;margin-top:16px">Two founders. <span style="color:#ffe1d1">No middlemen.</span></h2>
-      <p style="color:#ffe9de;margin-top:10px;max-width:620px">When you work with Nexus, you talk directly to the people building your website and handling your project — never a call centre.</p>
+      <h2 style="color:#fff;margin-top:16px">Two founders. <span style="color:#f3d9c8">No middlemen.</span></h2>
+      <p style="color:#f7e3d3;margin-top:10px;max-width:620px">When you work with Nexus, you talk directly to the people building your website and handling your project — never a call centre.</p>
       <div class="team-grid">
         <div class="member">
           <div class="avatar">DM</div>

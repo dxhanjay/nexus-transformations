@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nexus Transformations — Websites for Every Business | Portfolio</title>
-<!-- palette-v3 -->
+<!-- anim-v4 -->
 <meta name="description" content="Nexus Transformations is a digital agency building websites for businesses all over India — homestays, restaurants, salons, gyms, clinics, coaching and more. See a free demo of your own website before you pay anything.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://images.unsplash.com">
@@ -182,6 +182,26 @@ footer ul{list-style:none}
 footer li{margin:8px 0;color:var(--grey);font-size:15px}
 footer li a:hover{color:var(--orange-d)}
 .copy{margin-top:36px;padding-top:20px;border-top:1px dashed var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;color:var(--grey);font-size:13.5px}
+
+/* Agnos-style motion layer */
+.burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px;border-radius:50%}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger:hover span{background:var(--orange)}
+.nav{transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 18px 40px rgba(16,16,16,.20)}
+.menu-overlay{position:fixed;inset:0;background:#101010;z-index:400;transform:translateY(-103%);transition:transform .6s cubic-bezier(.76,0,.24,1);display:flex;flex-direction:column;justify-content:center;padding:90px 8vw 40px}
+.menu-overlay.open{transform:translateY(0)}
+.menu-close{position:absolute;top:22px;right:26px;background:none;border:1px solid rgba(230,213,189,.4);color:#e6d5bd;width:48px;height:48px;border-radius:50%;font-size:24px;cursor:pointer;transition:.3s}
+.menu-close:hover{background:#d5360c;border-color:#d5360c;color:#fff}
+.menu-links{display:flex;flex-direction:column;gap:6px}
+.menu-links a{font-size:clamp(34px,6.5vw,58px);font-weight:900;letter-spacing:-.03em;color:#e6d5bd;line-height:1.15;opacity:0;transform:translateY(26px);transition:opacity .5s ease,transform .5s ease,color .25s}
+.menu-links a:hover{color:#d5360c}
+.menu-overlay.open .menu-links a{opacity:1;transform:none}
+.menu-overlay.open .menu-links a:nth-child(1){transition-delay:.15s}.menu-overlay.open .menu-links a:nth-child(2){transition-delay:.22s}.menu-overlay.open .menu-links a:nth-child(3){transition-delay:.29s}.menu-overlay.open .menu-links a:nth-child(4){transition-delay:.36s}.menu-overlay.open .menu-links a:nth-child(5){transition-delay:.43s}.menu-overlay.open .menu-links a:nth-child(6){transition-delay:.50s}
+.menu-foot{margin-top:38px;color:#8d8574;font-size:14px;letter-spacing:.06em}
+.btn-arrow::after{content:"\2192";display:inline-block;transition:transform .3s}
+.btn-arrow:hover::after{transform:translateX(4px)}
+.work-card .imgwrap img{will-change:transform,clip-path}
 /* reveals */
 [data-reveal]{opacity:0;transform:translateY(14px);transition:opacity .55s ease,transform .55s ease}
 [data-reveal].in{opacity:1;transform:none}
@@ -200,8 +220,22 @@ footer li a:hover{color:var(--orange-d)}
     <nav class="nav-links">
       <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
     </nav>
-    <a class="btn btn-black btn-sm" href="#contact">Start a Project</a>
+    <div style="display:flex;align-items:center;gap:6px"><button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button><a class="btn btn-black btn-sm" href="#contact">Start a Project</a></div>
   </div>
+</div>
+
+
+<div class="menu-overlay" id="menuOverlay" aria-hidden="true">
+  <button class="menu-close" id="menuClose" aria-label="Close menu">&times;</button>
+  <nav class="menu-links">
+    <a href="#work">Work</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Start a Project</a>
+  </nav>
+  <div class="menu-foot">NEXUS TRANSFORMATIONS &middot; WEBSITES FOR EVERY BUSINESS &middot; ALL OVER INDIA</div>
 </div>
 
 <main id="top">
@@ -211,7 +245,7 @@ footer li a:hover{color:var(--orange-d)}
     <h1 id="headline">We build websites that grow businesses</h1>
     <p>Nexus Transformations designs and builds websites for businesses all over India — homestays, restaurants, cafes, salons, gyms, clinics, coaching centres and more. You see a free demo of <b style="color:var(--ink)">your own website</b> before you pay anything.</p>
     <div class="hero-cta">
-      <a class="btn btn-orange" href="#contact">Get My Free Demo</a>
+      <a class="btn btn-orange btn-arrow" href="#contact">Get My Free Demo</a>
       <a class="btn btn-black" href="#work">See Our Work</a>
     </div>
     <div class="hero-note">Demo first &middot; <b>No price discussion until you have seen your demo</b> &middot; No obligation</div>
@@ -364,7 +398,7 @@ footer li a:hover{color:var(--orange-d)}
     <div class="price-grid">
       <div class="price" data-reveal>
         <h3>Starter</h3>
-        <div class="amt">₹1,999 <small>one-time</small></div>
+        <div class="amt">₹<span class="count" data-count="1999">1,999</span> <small>one-time</small></div>
         <p class="sub">For small businesses that need a strong one-page presence, fast.</p>
         <ul>
           <li>One-page website</li>
@@ -378,7 +412,7 @@ footer li a:hover{color:var(--orange-d)}
       <div class="price pop" data-reveal>
         <span class="pop-tag">MOST CHOSEN</span>
         <h3>Premium</h3>
-        <div class="amt">₹8,000 <small>one-time</small></div>
+        <div class="amt">₹<span class="count" data-count="8000">8,000</span> <small>one-time</small></div>
         <p class="sub">The complete website for businesses that live on enquiries and bookings.</p>
         <ul>
           <li>Multi-page website</li>
@@ -388,7 +422,7 @@ footer li a:hover{color:var(--orange-d)}
           <li>Google search setup</li>
           <li>Gallery, location &amp; reviews sections</li>
         </ul>
-        <a class="btn btn-orange" href="#contact">Start with a Free Demo</a>
+        <a class="btn btn-orange btn-arrow" href="#contact">Start with a Free Demo</a>
       </div>
       <div class="price custom" data-reveal>
         <h3>Custom</h3>
@@ -512,19 +546,68 @@ footer li a:hover{color:var(--orange-d)}
 </div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
 <script>
 (function(){
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* progress */
   var prog=document.getElementById('progress');
+  var navEl=document.querySelector('.nav');
   addEventListener('scroll',function(){
     var h=document.documentElement.scrollHeight-innerHeight;
     prog.style.width=(h>0?((window.scrollY||0)/h)*100:0)+'%';
+    if(navEl)navEl.classList.toggle('scrolled',(window.scrollY||0)>10);
   },{passive:true});
-  /* reveals */
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.1});
-  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
+  
+/* Agnos-style motion layer */
+.burger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px;border-radius:50%}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s,opacity .3s}
+.burger:hover span{background:var(--orange)}
+.nav{transition:box-shadow .3s}
+.nav.scrolled{box-shadow:0 18px 40px rgba(16,16,16,.20)}
+.menu-overlay{position:fixed;inset:0;background:#101010;z-index:400;transform:translateY(-103%);transition:transform .6s cubic-bezier(.76,0,.24,1);display:flex;flex-direction:column;justify-content:center;padding:90px 8vw 40px}
+.menu-overlay.open{transform:translateY(0)}
+.menu-close{position:absolute;top:22px;right:26px;background:none;border:1px solid rgba(230,213,189,.4);color:#e6d5bd;width:48px;height:48px;border-radius:50%;font-size:24px;cursor:pointer;transition:.3s}
+.menu-close:hover{background:#d5360c;border-color:#d5360c;color:#fff}
+.menu-links{display:flex;flex-direction:column;gap:6px}
+.menu-links a{font-size:clamp(34px,6.5vw,58px);font-weight:900;letter-spacing:-.03em;color:#e6d5bd;line-height:1.15;opacity:0;transform:translateY(26px);transition:opacity .5s ease,transform .5s ease,color .25s}
+.menu-links a:hover{color:#d5360c}
+.menu-overlay.open .menu-links a{opacity:1;transform:none}
+.menu-overlay.open .menu-links a:nth-child(1){transition-delay:.15s}.menu-overlay.open .menu-links a:nth-child(2){transition-delay:.22s}.menu-overlay.open .menu-links a:nth-child(3){transition-delay:.29s}.menu-overlay.open .menu-links a:nth-child(4){transition-delay:.36s}.menu-overlay.open .menu-links a:nth-child(5){transition-delay:.43s}.menu-overlay.open .menu-links a:nth-child(6){transition-delay:.50s}
+.menu-foot{margin-top:38px;color:#8d8574;font-size:14px;letter-spacing:.06em}
+.btn-arrow::after{content:"\2192";display:inline-block;transition:transform .3s}
+.btn-arrow:hover::after{transform:translateX(4px)}
+.work-card .imgwrap img{will-change:transform,clip-path}
+/* reveals */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var el=e.target;el.classList.add('in');io.unobserve(el);setTimeout(function(){el.style.transitionDelay='0s';},1000);}})},{threshold:.1});
+  var seenParents=new Map();
+  document.querySelectorAll('[data-reveal]').forEach(function(el){
+    var n=seenParents.get(el.parentElement)||0; seenParents.set(el.parentElement,n+1);
+    el.style.transitionDelay=((n%5)*0.07)+'s';
+    io.observe(el);
+  });
+  /* Agnos-style count-up numbers */
+  var cio=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(!e.isIntersecting)return; cio.unobserve(e.target);
+    var el=e.target,target=+el.getAttribute('data-count'),start=null;
+    function tick(ts){ if(!start)start=ts; var pr=Math.min(1,(ts-start)/1000); var ease=1-Math.pow(1-pr,3);
+      el.textContent=Math.round(target*ease).toLocaleString('en-IN'); if(pr<1)requestAnimationFrame(tick); }
+    if(reduced){el.textContent=target.toLocaleString('en-IN');}else{requestAnimationFrame(tick);}
+  });},{threshold:.5});
+  document.querySelectorAll('.count[data-count]').forEach(function(el){cio.observe(el);});
+  /* Full-screen menu (Agnos) */
+  var overlay=document.getElementById('menuOverlay'),burger=document.getElementById('burger'),mclose=document.getElementById('menuClose');
+  function setMenu(open){
+    overlay.classList.toggle('open',open);
+    overlay.setAttribute('aria-hidden',open?'false':'true');
+    document.body.style.overflow=open?'hidden':'';
+    if(window.__lenis){if(open)window.__lenis.stop();else window.__lenis.start();}
+  }
+  if(burger)burger.addEventListener('click',function(){setMenu(true);});
+  if(mclose)mclose.addEventListener('click',function(){setMenu(false);});
+  overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){setMenu(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false);});
   /* process carousel */
   var steps=[
     {t:'We study your business',x:'We research your business, your customers and your competitors, and plan a website around what actually brings you enquiries.',tags:['RESEARCH','PLANNING']},
@@ -570,7 +653,7 @@ footer li a:hover{color:var(--orange-d)}
   /* lenis — desktop pointer devices only; native scroll stays on touch (much smoother on phones) */
   if(window.Lenis && window.matchMedia('(pointer: fine)').matches){
     document.documentElement.style.scrollBehavior='auto';
-    var lenis=new Lenis({lerp:0.09,smoothWheel:true,wheelMultiplier:1,touchMultiplier:0});
+    var lenis=new Lenis({lerp:0.09,smoothWheel:true,wheelMultiplier:1,touchMultiplier:0}); window.__lenis=lenis;
     function raf(t){lenis.raf(t);requestAnimationFrame(raf);}
     requestAnimationFrame(raf);
     document.querySelectorAll('a[href^="#"]').forEach(function(a){
@@ -588,7 +671,18 @@ footer li a:hover{color:var(--orange-d)}
       var cls=(w==='businesses')?'wi o':'wi';
       return '<span class="w"><span class="'+cls+'">'+w+'</span></span>';
     }).join(' ');
-    gsap.from(h1.querySelectorAll('.wi'),{yPercent:110,duration:.9,stagger:.05,ease:'power4.out',delay:.1});
+    var tl=gsap.timeline({defaults:{ease:'power4.out'}});
+    tl.from('.hero .eyebrow',{y:18,opacity:0,duration:.55})
+      .from(h1.querySelectorAll('.wi'),{yPercent:110,duration:.9,stagger:.05},'-=.2')
+      .from('.hero p',{y:20,opacity:0,duration:.55},'-=.45')
+      .from('.hero-cta',{y:20,opacity:0,duration:.55},'-=.35')
+      .from('.hero-note',{opacity:0,duration:.45},'-=.25');
+    if(window.ScrollTrigger){
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.utils.toArray('.work-card .imgwrap img').forEach(function(img){
+        gsap.fromTo(img,{clipPath:'inset(0 0 100% 0)'},{clipPath:'inset(0 0 0% 0)',duration:1.05,ease:'power3.out',scrollTrigger:{trigger:img,start:'top 88%'}});
+      });
+    }
   }
 })();
 </script>

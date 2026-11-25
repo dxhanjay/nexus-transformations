@@ -12,7 +12,7 @@
   gtag('js', new Date());
   gtag('config', 'G-LG5MTQZV4G');
 </script>
-<!-- ga-v7 -->
+<!-- formfix-v8 -->
 <meta name="description" content="Nexus Transformations is a digital agency building websites for businesses all over India — homestays, restaurants, salons, gyms, clinics, coaching and more. See a free demo of your own website before you pay anything.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="canonical" href="https://nexus-transformations.vercel.app/">
@@ -190,6 +190,8 @@ h2 .o{color:var(--orange)}
 .contact-form{max-width:640px;margin:34px auto 0;text-align:left}
 .contact-form label{display:block;font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b8b0a0;margin:15px 0 6px}
 .contact-form input,.contact-form textarea{width:100%;padding:13px 15px;border-radius:12px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;font:inherit}
+.form-note{display:none;margin-top:14px;background:#f6dcd2;border:1px solid #eda183;color:#101010;border-radius:12px;padding:12px 14px;font-size:14px;line-height:1.55}
+.form-note a{color:#a82a09;font-weight:700;text-decoration:underline}
 .contact-form input::placeholder,.contact-form textarea::placeholder{color:#8d8574}
 .contact-form .btn{width:100%;justify-content:center;margin-top:22px}
 /* footer */
@@ -528,6 +530,7 @@ footer li a:hover{color:var(--orange-d)}
         <label for="cMsg">Anything else? (optional)</label>
         <textarea id="cMsg" rows="3" placeholder="Tell us anything that helps — location, rooms, menu, services…"></textarea>
         <button class="btn btn-orange" type="submit">Request My Free Demo</button>
+        <p class="form-note" id="formNote" role="status"></p>
       </form>
     </div>
   </div></section>
@@ -647,7 +650,12 @@ footer li a:hover{color:var(--orange-d)}
         p=document.getElementById('cPhone').value.trim(),
         m=document.getElementById('cMsg').value.trim();
     var body='Namaste Nexus Transformations,\n\nI am '+n+' from '+b+'.\nMy WhatsApp number: '+p+'\n'+(m?('About my business: '+m+'\n'):'')+'\nPlease build my free demo website.';
-    window.location.href='mailto:dhananjoy377@gmail.com?subject='+encodeURIComponent('Free demo request — '+b)+'&body='+encodeURIComponent(body);
+    var mailto='mailto:dhananjoy377@gmail.com?subject='+encodeURIComponent('Free demo request — '+b)+'&body='+encodeURIComponent(body);
+    var note=document.getElementById('formNote');
+    note.innerHTML='Opening your email app with your demo request — just press send there. If nothing opens, email us at <b>dhananjoy377@gmail.com</b> or <a href="'+mailto+'">tap here to open the draft</a>.';
+    note.style.display='block';
+    note.scrollIntoView({behavior:'smooth',block:'center'});
+    window.location.href=mailto;
   });
   if(reduced) return;
   /* lenis — desktop pointer devices only; native scroll stays on touch (much smoother on phones) */
